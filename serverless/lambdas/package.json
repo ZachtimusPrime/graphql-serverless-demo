@@ -1,0 +1,12 @@
+{
+  "name": "lambdas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "cd server/ && npm install",
+    "deploy-dev": "npm run install-server && serverless deploy --stage dev --verbose"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,7 @@
+project: graphql-demo
+
+dev:
+  tags:
+    PROJECT: GRAPHQLDEMO
+
+  profile: {YOUR-PROFILE-HERE}

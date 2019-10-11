@@ -1,0 +1,21 @@
+name: "${self:custom.config.project}-api"
+memorySize: 128
+timeout: 10
+runtime: "nodejs8.10"
+handler: "server/index.handler"
+package:
+  include:
+  - "server/**"
+  - "!server/config.yml"
+  - "!server/package*"
+events:
+  - http:
+      path: graphql
+      method: post
+environment:
+  AUTHOR_TABLE: "${self:custom.config.project}-author-table-${self:custom.stage}"
+  BOOK_TABLE: "${self:custom.config.project}-book-table-${self:custom.stage}"
+role:
+  Fn::GetAtt:
+    - LambdaRole
+    - Arn

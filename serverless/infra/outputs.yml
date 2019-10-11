@@ -1,0 +1,19 @@
+# Export resources for cross-stack references
+Outputs:
+  # API Gateway API ID
+  ApiGWID:
+    Description: API Gateway API ID
+    Value:
+      Ref: APIGateway
+    Export:
+      Name:
+        Fn::Sub: "${self:custom.config.project}-apigw-${self:custom.stage}-id"
+
+  # API Gateway Root Resource ID
+  ApiGWRootResourceID:
+    Description: POC API GW Root Resource ID
+    Value:
+      "Fn::GetAtt": [ APIGateway, RootResourceId ]
+    Export:
+      Name:
+        Fn::Sub: "${self:custom.config.project}-apigw-${self:custom.stage}-root-resource-id"

@@ -1,0 +1,17 @@
+service: graphql-demo-infra
+
+custom:
+  config: ${file(../serverless-config.yml)}
+  stage: ${opt:stage, 'dev'}
+
+provider:
+  name: aws
+  profile: ${self:custom.config.${opt:stage, 'dev'}.profile}
+  stage: ${opt:stage, 'dev'}
+  stackTags: ${self:custom.config.${opt:stage, 'dev'}.tags}
+
+resources:
+  - ${file(apigw.yml)}
+  - ${file(dynamodb.yml)}
+
+  - ${file(outputs.yml)}

@@ -1,0 +1,5 @@
+Resources:
+  APIGateway:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Name: ${self:custom.config.project}-apigw-${self:custom.stage}
